@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fish Species Predictor</title>
+    <style>
+        body {
+            background-image: url("/static/img/background.jpg");
+            background-size: cover;
+            color: #c92323;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        hr {
+            margin-top: 50px;
+            border: none;
+            border-top: 1px solid #fff;
+        }
+
+        .result-container {
+            text-align: center;
+            margin-top: 30px;
+            animation: fadeIn 1s;
+        }
+
+        .result-container p {
+            font-size: 24px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Fish Species Predictor</h1>
+    <form action="/predict" method="post">
+        <label for="weight">Weight:</label><br>
+        <input type="number" id="weight" name="weight"><br>
+        <label for="length1">Length1:</label><br>
+        <input type="number" id="length1" name="length1"><br>
+        <label for="length2">Length2:</label><br>
+        <input type="number" id="length2" name="length2"><br>
+        <label for="length3">Length3:</label><br>
+        <input type="number" id="length3" name="length3"><br>
+        <label for="height">Height:</label><br>
+        <input type="number" id="height" name="height"><br>
+        <label for="width">Width:</label><br>
+        <input type="number" id="width" name="width"><br>
+        <input type="submit" value="Predict">
+    </form>
+    <hr>
+    <div class="result-container">
+        {% if species %}
+            <h1>Prediction Result</h1>
+            <p>The predicted species is: {{ species }}</p>
+        {% else %}
+            <p>Please Enter the Values.</p>
+        {% endif %}
+    </div>
+    
+    <script>
+        // Add your JavaScript code here, if needed
+    </script>
+</body>
+</html>
